@@ -1,12 +1,12 @@
-# Creating an Agent
+# Creating or Editing an Agent
 
-**Trigger**: User wants to start, scaffold, create new agent, get started with Terminal Use.
+**Trigger**: User wants to start, scaffold, create a new agent, get started with Terminal Use, OR modify/update/edit an existing agent (add skills, change behavior, update dependencies, configure options).
 
 **Recommended reading**:
 - Terminal use docs for building agents: https://docs.terminaluse.com/introduction/building-agents.md
 - Reference for Claude Agent SDK: https://platform.claude.com/docs/en/agent-sdk/python
 
-## Steps
+## Creating a New Agent
 
 1. (Optional) `tu namespaces ls`
     - List namespaces user has access to
@@ -18,6 +18,23 @@
 3. Modify the agent as needed based on user's requirements. You must read the Claude Agent SDK docs if you're making changes to the agent.
 
 4. Ask: "Want to deploy this agent?" → if yes, see [./deploy.md](./deploy.md)
+
+## Editing an Existing Agent
+
+1. Locate the agent directory (must contain `config.yaml`):
+   ```bash
+   ls <agent-dir>/config.yaml || echo "Not an agent directory"
+   ```
+
+2. Read the existing agent code to understand current state:
+   - `config.yaml` — agent name, build config, deployment settings
+   - `src/agent.py` — agent logic, ClaudeAgentOptions, tools
+   - `Dockerfile` — build steps, system deps, file copies
+   - `pyproject.toml` — Python dependencies
+
+3. Make the requested changes (see sections below for common modifications).
+
+4. Ask: "Want to deploy the updated agent?" → if yes, see [./deploy.md](./deploy.md)
 
 
 ## Adding Dependencies
