@@ -1,6 +1,6 @@
 ---
 name: terminaluse
-description: Create, deploy, and interact with agents on TerminalUse. Use when user mentions "tu", "terminaluse", "deploy agent", "create agent", "agent task", "filesystem", or wants to build/test/run an agent.
+description: Create, edit, deploy, and interact with agents on TerminalUse. Use when user mentions "tu", "terminaluse", "deploy agent", "create agent", "edit agent", "update agent", "add skills", "agent task", "filesystem", or wants to build/modify/test/run an agent.
 ---
 
 # TerminalUse
@@ -50,7 +50,7 @@ If not present, `cd` into the agent project folder first.
 
 | Task | Reference |
 |------|-----------|
-| Create a new agent | [./workflows/create.md](./workflows/create.md) |
+| Create or edit an agent | [./workflows/create.md](./workflows/create.md) |
 | Deploy to platform | [./workflows/deploy.md](./workflows/deploy.md) |
 | Test/interact with agent | [./workflows/interact.md](./workflows/interact.md) |
 
