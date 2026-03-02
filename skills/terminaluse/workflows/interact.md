@@ -10,16 +10,26 @@ Tasks require a filesystem.
 
 ## Steps
 
-1. **Check for filesystems (list them)**
-   If exists → confirm use with user → skip to step 3
+1. **Check for filesystems**
+   ```bash
+   tu fs ls
+   ```
+   If a suitable filesystem exists, confirm with the user and reuse it.
 
-2. **Create project if needed or ask user which project to use**
+2. **Choose a project (or create one)**
+   ```bash
+   tu projects ls
+   tu projects create --namespace <namespace> --name "<project-name>"
+   ```
 
-3. **Ask user if they would like to upload local folder to the filesystem**
+3. **Upload local files to filesystem (optional)**
+   ```bash
+   tu fs push <fs-id> <local-path>
+   ```
 
 4. **Create task:**
    ```bash
-   tu tasks create --filesystem <fs-id> -m "message"      # With filesystem
+   tu tasks create --filesystem-id <fs-id> -m "message"   # With existing filesystem
    tu tasks create --project <project-id> -m "message"    # Auto-creates filesystem
    ```
 
@@ -28,4 +38,16 @@ Tasks require a filesystem.
    tu tasks send <task-id> -m "message"
    ```
 
-6. **Ask user if they would like to download filesystem locally**
+6. **Inspect task details (optional)**
+   ```bash
+   tu tasks ls <task-id>
+   ```
+
+7. **Download filesystem locally (optional)**
+   ```bash
+   tu fs pull <fs-id> <local-path>
+   ```
+
+Notes:
+- `tu fs` is canonical. `tu filesystems` is an alias.
+- There is no `tu tasks get`; use `tu tasks ls <task-id>`.

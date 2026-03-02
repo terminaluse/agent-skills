@@ -20,16 +20,22 @@ The `tu` CLI is provided by the `terminaluse` Python package. Before running any
 
 2. **If not installed**, ask user whether they would like to install it or if there's a venv they would like to source
    
-3. Ensure you have an active token with `tu login`. You can run the command which will open a browser for the user to login.
+3. Ensure you have auth configured:
+   - Interactive/local: `tu login` then `tu whoami`
+   - Non-interactive/automation: set `TERMINALUSE_API_KEY` (and optionally `TERMINALUSE_BASE_URL`)
 
 ## Context Requirement
 
-Most `tu` commands require `config.yaml` in current directory to know what agent to target. Before running commands:
+Agent-scoped commands often default to `config.yaml` in the current directory when `--agent`/`--config` is omitted.
+
+Before running agent-scoped commands without explicit flags:
 ```bash
 ls config.yaml || echo "Not in agent directory"
 ```
 
-If not present, `cd` into the agent project folder first.
+Use explicit flags when possible:
+- `--agent <namespace/name>` to avoid directory coupling
+- `--config <path>` when working with a specific manifest
 
 ## Quick Reference
 
@@ -40,11 +46,16 @@ If not present, `cd` into the agent project folder first.
 | Deploy | `tu deploy -y` |
 | List deployments | `tu ls` |
 | Rollback | `tu rollback` |
+| List filesystems | `tu fs ls` |
+| List projects | `tu projects ls` |
 | Add env var | `tu env add <KEY> -v <val> -e prod\|preview\|all [--secret]` |
 | Import env file | `tu env import <file> -e <env> [--secret KEY]` |
-| Create task | `tu tasks create -f <fs-id> -m "message"` |
+| Create task | `tu tasks create --filesystem-id <fs-id> -m "message"` |
 | Create task (auto-create fs) | `tu tasks create -p <project-id> -m "message"` |
 | Send message | `tu tasks send <task-id> -m "message"` |
+| Get task details | `tu tasks ls <task-id>` |
+
+`tu fs` is the canonical filesystems command. `tu filesystems` is a supported alias.
 
 ## Workflows
 
