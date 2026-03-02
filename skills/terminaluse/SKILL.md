@@ -9,6 +9,12 @@ Build, deploy, interact with agents. Flow: init → deploy → create task → s
 
 Full docs: https://docs.terminaluse.com/llms-full.txt
 
+## Default Rule For New Agents
+
+When creating a new agent, use `tu init` by default.
+
+Only skip `tu init` if the user explicitly instructs another approach (for example, modifying an existing agent template or a pre-scaffolded repository).
+
 ## CLI Setup
 
 The `tu` CLI is provided by the `terminaluse` Python package. Before running any `tu` commands:
