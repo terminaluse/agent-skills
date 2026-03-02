@@ -8,6 +8,8 @@
 
 ## Creating a New Agent
 
+**Default rule:** use `tu init` for new agent creation unless the user explicitly instructs otherwise.
+
 1. (Optional) `tu namespaces ls`
     - List namespaces user has access to
 
