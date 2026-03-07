@@ -50,16 +50,15 @@ Use explicit flags when possible:
 | List projects | `tu projects ls` |
 | Add env var | `tu env add <KEY> -v <val> -e prod\|preview\|all [--secret]` |
 | Import env file | `tu env import <file> -e <env> [--secret KEY]` |
-| Create task | `tu tasks create --filesystem-id <fs-id> -m "message"` |
-| Create task (JSON) | `tu tasks create --filesystem-id <fs-id> -m "message" --json` |
-| Create task (auto-create fs) | `tu tasks create -p <project-id> -m "message"` |
-| Send message | `tu tasks send <task-id> -m "message"` |
-| Send message (JSON stream) | `tu tasks send <task-id> -m "message" --json` |
-| List tasks (JSON) | `tu tasks ls --json` |
+| Create task | `tu tasks create --filesystem-id <fs-id> -m "message" [--json]` |
+| Create task (auto-create fs) | `tu tasks create -p <project-id> -m "message" [--json]` |
+| Send message | `tu tasks send <task-id> -m "message" [--json]` |
+| List tasks | `tu tasks ls [--json]` |
 | Get task details | `tu tasks get <task-id>` |
 
 `tu fs` is the canonical filesystems command. `tu filesystems` is a supported alias.
 `tu tasks ls <id>` is deprecated for single-task retrieval; use `tu tasks get <id>`.
+Prefer `--json` for CI/automation and agent-to-agent interaction.
 
 ## Workflows
 

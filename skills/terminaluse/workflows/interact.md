@@ -29,21 +29,18 @@ Tasks require a filesystem.
 
 4. **Create task:**
    ```bash
-   tu tasks create --filesystem-id <fs-id> -m "message"   # With existing filesystem
-   tu tasks create --project <project-id> -m "message"    # Auto-creates filesystem
-   tu tasks create --project <project-id> -m "message" --json  # Machine-readable output
+   tu tasks create --filesystem-id <fs-id> -m "message" [--json]  # With existing filesystem
+   tu tasks create --project <project-id> -m "message" [--json]   # Auto-creates filesystem
    ```
 
 5. **Follow-up messages:**
    ```bash
-   tu tasks send <task-id> -m "message"
-   tu tasks send <task-id> -m "message" --json
+   tu tasks send <task-id> -m "message" [--json]
    ```
 
 6. **Inspect task details (optional)**
    ```bash
    tu tasks get <task-id>
-   tu tasks ls --json
    ```
 
 7. **Download filesystem locally (optional)**
