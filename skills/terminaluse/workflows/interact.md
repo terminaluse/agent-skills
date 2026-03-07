@@ -29,18 +29,18 @@ Tasks require a filesystem.
 
 4. **Create task:**
    ```bash
-   tu tasks create --filesystem-id <fs-id> -m "message"   # With existing filesystem
-   tu tasks create --project <project-id> -m "message"    # Auto-creates filesystem
+   tu tasks create --filesystem-id <fs-id> -m "message" [--json]  # With existing filesystem
+   tu tasks create --project <project-id> -m "message" [--json]   # Auto-creates filesystem
    ```
 
 5. **Follow-up messages:**
    ```bash
-   tu tasks send <task-id> -m "message"
+   tu tasks send <task-id> -m "message" [--json]
    ```
 
 6. **Inspect task details (optional)**
    ```bash
-   tu tasks ls <task-id>
+   tu tasks get <task-id>
    ```
 
 7. **Download filesystem locally (optional)**
@@ -50,4 +50,5 @@ Tasks require a filesystem.
 
 Notes:
 - `tu fs` is canonical. `tu filesystems` is an alias.
-- There is no `tu tasks get`; use `tu tasks ls <task-id>`.
+- `tu tasks ls <id>` is deprecated for single-task retrieval; use `tu tasks get <id>`.
+- Prefer `--json` for CI/automation and agent-to-agent interaction.
