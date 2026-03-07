@@ -51,11 +51,15 @@ Use explicit flags when possible:
 | Add env var | `tu env add <KEY> -v <val> -e prod\|preview\|all [--secret]` |
 | Import env file | `tu env import <file> -e <env> [--secret KEY]` |
 | Create task | `tu tasks create --filesystem-id <fs-id> -m "message"` |
+| Create task (JSON) | `tu tasks create --filesystem-id <fs-id> -m "message" --json` |
 | Create task (auto-create fs) | `tu tasks create -p <project-id> -m "message"` |
 | Send message | `tu tasks send <task-id> -m "message"` |
-| Get task details | `tu tasks ls <task-id>` |
+| Send message (JSON stream) | `tu tasks send <task-id> -m "message" --json` |
+| List tasks (JSON) | `tu tasks ls --json` |
+| Get task details | `tu tasks get <task-id>` |
 
 `tu fs` is the canonical filesystems command. `tu filesystems` is a supported alias.
+`tu tasks ls <id>` is deprecated for single-task retrieval; use `tu tasks get <id>`.
 
 ## Workflows
 
